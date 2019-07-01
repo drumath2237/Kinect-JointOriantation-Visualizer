@@ -99,6 +99,8 @@ public class KinectJointControllerFixed : MonoBehaviour
             SetBoneTransform(Foot_Left, Kinect.JointType.FootLeft);
             SetBoneTransform(Foot_Right, Kinect.JointType.FootRight);
 
+            SetBonesParents();
+
             FixBonesLocalRotation();
         }
     }
@@ -120,7 +122,9 @@ public class KinectJointControllerFixed : MonoBehaviour
     void SetBoneTransform(GameObject bone, Kinect.JointType type)
     {
         bone.transform.position = kinectPos2Vec3(type);
-        bone.transform.rotation = Vec4toQuaternion(type);
+        bone.transform.localRotation = Vec4toQuaternion(type);
+
+        bone.name = type.ToString();
     }
 
     void FixBonesLocalRotation()
@@ -132,5 +136,25 @@ public class KinectJointControllerFixed : MonoBehaviour
         Hip_Right.transform.localRotation *= Quaternion.AngleAxis(-90, new Vector3(0, 0, 1));
         Hip_Left.transform.localRotation *= Quaternion.AngleAxis(90, new Vector3(0, 0, 1));
 
+        Elbow_Right.transform.localRotation *= Quaternion.AngleAxis(90, new Vector3(0, 0, 1)) * Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+        Elbow_Left.transform.localRotation *= Quaternion.AngleAxis(-90, new Vector3(0, 0, 1)) * Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+
+        Knee_Right.transform.localRotation *= Quaternion.AngleAxis(-90, new Vector3(0, 1, 0)) * Quaternion.AngleAxis(180, new Vector3(0, 0, 1));
+        Knee_Left.transform.localRotation *= Quaternion.AngleAxis(90, new Vector3(0, 1, 0)) * Quaternion.AngleAxis(180, new Vector3(0, 0, 1));
+
+        Ankle_Right.transform.localRotation *= Quaternion.AngleAxis(-90, new Vector3(0, 1, 0)) * Quaternion.AngleAxis(180, new Vector3(0, 0, 1));
+        Ankle_Left.transform.localRotation *= Quaternion.AngleAxis(90, new Vector3(0, 1, 0)) * Quaternion.AngleAxis(180, new Vector3(0, 0, 1));
+
+        Foot_Left.transform.localRotation *= Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+        Foot_Right.transform.localRotation *= Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+    }
+
+    void SetBonesParents()
+    {
+        //Wrist_Right.transform.parent = Elbow_Right.transform;
+        //Elbow_Right.transform.parent = Shoulder_Right.transform;
+
+        //Ankle_Right.transform.parent = Knee_Right.transform;
+        //Knee_Right.transform.parent = Hip_Right.transform;
     }
 }
