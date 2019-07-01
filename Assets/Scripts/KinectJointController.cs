@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 using Kinect = Windows.Kinect;
 
@@ -67,7 +68,7 @@ public class KinectJointController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _body = _bodySourceManager.GetData()[0];
+        _body = _bodySourceManager.GetData().FirstOrDefault(b => b.IsTracked);
 
         if (_body.IsTracked)
         {
