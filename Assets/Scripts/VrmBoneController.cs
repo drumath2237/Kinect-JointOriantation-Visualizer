@@ -36,9 +36,9 @@ public class VrmBoneController : MonoBehaviour
             CheckObjects();
 
         _animator.GetBoneTransform(HumanBodyBones.LeftLowerArm).rotation = LeftElbow.transform.rotation;
-        _animator.GetBoneTransform(HumanBodyBones.LeftShoulder).rotation = LeftShoulder.transform.rotation;
+        _animator.GetBoneTransform(HumanBodyBones.LeftUpperArm).rotation = LeftShoulder.transform.rotation;
 
-        _animator.GetBoneTransform(HumanBodyBones.RightShoulder).rotation = RightShoulder.transform.rotation;
+        _animator.GetBoneTransform(HumanBodyBones.RightUpperArm).rotation = RightShoulder.transform.rotation;
         _animator.GetBoneTransform(HumanBodyBones.RightLowerArm).rotation = RightElbow.transform.rotation;
 
         _animator.GetBoneTransform(HumanBodyBones.Spine).rotation = Spine.transform.rotation;
