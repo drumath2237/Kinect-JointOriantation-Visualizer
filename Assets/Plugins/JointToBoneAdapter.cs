@@ -5,7 +5,7 @@ using Kinect = Windows.Kinect;
 
 public static class JointToBoneAdapter
 {
-    static Dictionary<Kinect.JointType, HumanBodyBones> j_b_pair = new Dictionary<Kinect.JointType, HumanBodyBones>()
+    public static Dictionary<Kinect.JointType, HumanBodyBones> j_b_pair = new Dictionary<Kinect.JointType, HumanBodyBones>()
     {
         {Kinect.JointType.Head, HumanBodyBones.Head },
         {Kinect.JointType.Neck, HumanBodyBones.Neck },
@@ -15,11 +15,11 @@ public static class JointToBoneAdapter
 
         {Kinect.JointType.ShoulderLeft, HumanBodyBones.RightUpperArm },
         {Kinect.JointType.ElbowLeft, HumanBodyBones.RightLowerArm },
-        {Kinect.JointType.HandLeft, HumanBodyBones.RightHand },
+        //{Kinect.JointType.WristLeft, HumanBodyBones.RightHand },
 
         {Kinect.JointType.ShoulderRight, HumanBodyBones.LeftUpperArm },
         {Kinect.JointType.ElbowRight, HumanBodyBones.LeftLowerArm },
-        {Kinect.JointType.HandRight, HumanBodyBones.LeftHand },
+        //{Kinect.JointType.WristRight, HumanBodyBones.LeftHand },
 
         {Kinect.JointType.HipLeft, HumanBodyBones.RightUpperLeg },
         {Kinect.JointType.KneeLeft, HumanBodyBones.RightLowerLeg },
