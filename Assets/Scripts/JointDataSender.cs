@@ -45,4 +45,9 @@ public class JointDataSender : MonoBehaviour
 
         ws.Send(JsonUtility.ToJson(data));
     }
+
+    private void OnDestroy()
+    {
+        ws.Close();
+    }
 }
