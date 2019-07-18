@@ -5,12 +5,17 @@ using System.Linq;
 
 using Kinect = Windows.Kinect;
 
+using WebSocketSharp;
+using WebSocketSharp.Net;
+
 public class KinectJointControllerFixed : MonoBehaviour
 {
     [SerializeField] GameObject m_jointObj;
     [SerializeField] GameObject bodysourcemanager;
     Kinect.Body _body;
     BodySourceManager _bodySourceManager;
+
+    //WebSocket ws;
 
     GameObject Head;
     GameObject Neck;
@@ -63,6 +68,9 @@ public class KinectJointControllerFixed : MonoBehaviour
         Ankle_Right = Instantiate(m_jointObj);
         Foot_Left = Instantiate(m_jointObj);
         Foot_Right = Instantiate(m_jointObj);
+
+        //ws = new WebSocket("ws://drumath-unity-web-socket.herokuapp.com");
+        //ws.Connect();
     }
 
     // Update is called once per frame
