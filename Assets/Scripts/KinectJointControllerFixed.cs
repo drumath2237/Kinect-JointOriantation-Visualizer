@@ -69,8 +69,6 @@ public class KinectJointControllerFixed : MonoBehaviour
         Foot_Left = Instantiate(m_jointObj);
         Foot_Right = Instantiate(m_jointObj);
 
-        //ws = new WebSocket("ws://drumath-unity-web-socket.herokuapp.com");
-        //ws.Connect();
     }
 
     // Update is called once per frame
